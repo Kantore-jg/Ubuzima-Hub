@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubuzima Hub - Présentation</title>
+    <link rel="icon" href="favicon.ico">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e1f5fe 100%);
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .presentation-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .slide {
+            width: 100%;
+            min-height: 90vh;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            margin-bottom: 40px;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Slide 1 - Couverture */
+        .slide-1 {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo-area {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .main-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #1e293b, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #64748b;
+            margin-bottom: 60px;
+            line-height: 1.4;
+            max-width: 800px;
+            font-weight: 400;
+        }
+
+        .info-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            width: 100%;
+            max-width: 900px;
+            margin-top: 40px;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(10px);
+        }
+
+        .info-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-content {
+            font-size: 16px;
+            color: #374151;
+            line-height: 1.4;
+        }
+
+        .footer-credit {
+            position: absolute;
+            bottom: 20px;
+            left: 40px;
+            font-size: 12px;
+            color: #9ca3af;
+            line-height: 1.4;
+        }
+
+        /* Slides générales */
+        .slide-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .slide-content {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            min-height: 500px;
+        }
+
+        .content-left {
+            flex: 2;
+        }
+
+        .content-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .bullet-list li {
+            margin-bottom: 20px;
+            padding-left: 40px;
+            position: relative;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #374151;
+        }
+
+        .bullet-list li::before {
+            content: "●";
+            color: #3b82f6;
+            font-size: 20px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .highlight-box {
+            background: #f0f9ff;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .visual-placeholder {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Slide 2 - Résumé */
+        .slide-2 {
+            background: white;
+        }
+
+        .executive-summary {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .summary-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .summary-item {
+            margin-bottom: 30px;
+        }
+
+        .summary-label {
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        /* Slide 3 - Problèmes */
+        .slide-3 {
+            background: #f8f9fa;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .problem-icon {
+            font-size: 32px;
+            width: 60px;
+            height: 60px;
+            background: #fee2e2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Slide 4 & 5 - Solutions */
+        .slide-4, .slide-5 {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .features-benefits {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .feature-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 20px;
+        }
+
+        /* Slide 6 - Impact */
+        .slide-6 {
+            background: white;
+        }
+
+        .impact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .chart-visual {
+            background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-title {
+            text-align: center;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+
+        .bar-chart {
+            display: flex;
+            align-items: end;
+            justify-content: space-around;
+            height: 200px;
+            margin: 20px 0;
+        }
+
+        .bar {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border-radius: 4px 4px 0 0;
+            min-width: 40px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bar-1 { height: 25%; }
+        .bar-2 { height: 45%; }
+        .bar-3 { height: 65%; }
+        .bar-4 { height: 85%; }
+        .bar-5 { height: 100%; }
+
+        .bar-label {
+            position: absolute;
+            bottom: -30px;
+            font-size: 12px;
+            color: #64748b;
+            white-space: nowrap;
+        }
+
+        .bar-value {
+            position: absolute;
+            top: -25px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        /* Slide 7 - Sponsors */
+        .slide-7 {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .sponsors-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .sponsor-benefit {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .benefit-icon {
+            font-size: 24px;
+            width: 50px;
+            height: 50px;
+            background: #dbeafe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Slide 8 - Budget */
+        .slide-8 {
+            background: white;
+        }
+
+        .budget-table {
+            margin-top: 30px;
+            border-collapse: collapse;
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .budget-table th,
+        .budget-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .budget-table th {
+            background: #3b82f6;
+            color: white;
+            font-weight: 600;
+        }
+
+        .budget-table tr:last-child td {
+            font-weight: 600;
+            background: #f0f9ff;
+        }
+
+        .budget-table td:nth-child(2),
+        .budget-table td:nth-child(3) {
+            text-align: right;
+        }
+
+        /* Slide 9 - Plan d'action */
+        .slide-9 {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 18%;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: #3b82f6;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        .year-title {
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item p {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        /* Slide 10 - Appel à l'action */
+        .slide-10 {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(34, 197, 94, 0.4);
+        }
+
+        /* Animations */
+        .slide {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .visual-placeholder {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .slide {
+                padding: 40px 20px;
+                margin-bottom: 20px;
+            }
+            
+            .main-title {
+                font-size: 32px;
+            }
+            
+            .subtitle {
+                font-size: 18px;
+            }
+            
+            .info-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .slide-content {
+                flex-direction: column;
+            }
+            
+            .features-benefits,
+            .sponsors-grid,
+            .problems-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .timeline::before {
+                display: none;
+            }
+            
+            .timeline-item {
+                width: 100%;
+            }
+        }
+
+        @media print {
+            body { 
+                background: white !important; 
+            }
+            .slide {
+                page-break-after: always;
+                box-shadow: none !important;
+                border: 1px solid #ccc;
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Slide 1: Couverture -->
+        <div class="slide slide-1">
+            <div class="logo-area">UH</div>
+            
+            <h1 class="main-title">Ubuzima Hub</h1>
+            <h2 class="main-title" style="font-size: 36px; margin-top: -10px;">Connecter les Citoyens et les Autorités</h2>
+            
+            <p class="subtitle">Une solution numérique pour la transparence et l'amélioration des services publics</p>
+
+            <div class="info-section">
+                <div class="info-card">
+                    <div class="info-title">Présenté par</div>
+                    <div class="info-content">Kantore Jean Gildas</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-title">Date</div>
+                    <div class="info-content">22 août 2025</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-title">Localisation</div>
+                    <div class="info-content">Bujumbura, Burundi</div>
+                </div>
+            </div>
+
+            <div class="footer-credit">
+                 Level up together with Ubuzima Hub (LifeHub)
+            </div>
+        </div>
+
+        <!-- Slide 2: Résumé exécutif -->
+        <div class="slide slide-2">
+            <h2 class="slide-title">Ubuzima Hub en bref</h2>
+            <div class="executive-summary">
+                <div class="summary-content">
+                    <div class="summary-item">
+                        <div class="summary-label">🎯 Objectif</div>
+                        <p>Connecter les ménages de Bujumbura aux autorités via une application mobile pour signaler les problèmes (eau, électricité, ordures), payer les taxes, et améliorer les transports publics.</p>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">📈 Impact</div>
+                        <p>Améliorer la transparence, réduire les délais de réponse de 50 % et atteindre 80 % des ménages en 5 ans.</p>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-label">🤝 Demande aux sponsors</div>
+                        <p>Soutien financier et partenariats pour développer et promouvoir l'application.</p>
+                    </div>
+                </div>
+                <div class="visual-placeholder">📱</div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Problèmes actuels -->
+        <div class="slide slide-3">
+            <h2 class="slide-title">Les défis de Bujumbura</h2>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">💬</div>
+                    <div>
+                        <h3>Communication limitée</h3>
+                        <p>Manque de communication directe entre citoyens et autorités</p>
+                    </div>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">💧</div>
+                    <div>
+                        <h3>Services publics</h3>
+                        <p>Coupures d'eau/électricité, gestion des ordures, routes mal entretenues</p>
+                    </div>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">💳</div>
+                    <div>
+                        <h3>Paiement des taxes</h3>
+                        <p>Processus compliqué et peu transparent</p>
+                    </div>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🚌</div>
+                    <div>
+                        <h3>Transport public</h3>
+                        <p>Informations limitées sur les bus et voitures privées, Stations-service avec l'essence difficiles à localiser </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Solution - Cahier de Ménages -->
+        <div class="slide slide-4">
+            <h2 class="slide-title">Cahier de Ménages : Une application pour tous</h2>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="features-benefits">
+                        <div class="feature-section">
+                            <h3 class="section-title">⚙️ Fonctionnalités</h3>
+                            <ul class="bullet-list">
+                                <li>Signalement en temps réel des problèmes (eau, électricité, ordures)</li>
+                                <li>Paiement simplifié des taxes via l'application</li>
+                                <li>Communication directe avec les autorités locales et nationales</li>
+                            </ul>
+                        </div>
+                        <div class="feature-section">
+                            <h3 class="section-title">✅ Bénéfices</h3>
+                            <ul class="bullet-list">
+                                <li><strong>Citoyens :</strong> Résolution rapide, meilleure transparence</li>
+                                <li><strong>Gouvernement :</strong> Suivi précis, données sur les besoins</li>
+                                <li><strong>Ministères :</strong> Retours immédiats pour améliorer les services</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-right">
+                    <div class="visual-placeholder">📋</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Solution - Transport -->
+        <div class="slide slide-5">
+            <h2 class="slide-title">Transport : Mobilité simplifiée</h2>
+            <div class="slide-content">
+                <div class="content-left">
+                    <div class="features-benefits">
+                        <div class="feature-section">
+                            <h3 class="section-title">🗺️ Fonctionnalités</h3>
+                            <ul class="bullet-list">
+                                <li>Carte interactive via Google Maps pour localiser bus publics et voitures privées</li>
+                                <li>Informations en temps réel sur les horaires et disponibilités</li>
+                                <li>Intégration d'alternatives locales (ex. : motos-taxis)</li>
+                            </ul>
+                        </div>
+                        <div class="feature-section">
+                            <h3 class="section-title">🚀 Bénéfices</h3>
+                            <ul class="bullet-list">
+                                <li>Réduit le temps d'attente des transports de 30 %</li>
+                                <li>Améliore l'accès à la mobilité pour les quartiers périphériques</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-right">
+                    <div class="visual-placeholder">🚌</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Impact attendu -->
+        <div class="slide slide-6">
+            <h2 class="slide-title">Un impact durable pour Bujumbura</h2>
+            <div class="impact-content">
+                <div>
+                    <h3 class="section-title">🎯 Objectifs à 5 ans</h3>
+                    <ul class="bullet-list">
+                        <li>Connecter 80 000 ménages au Cahier de Ménages</li>
+                        <li>Réduire les délais de réponse aux plaintes de 50 %</li>
+                        <li>Améliorer l'accès aux transports pour 60 % des habitants</li>
+                    </ul>
+                    <div class="highlight-box">
+                        <strong>Exemple concret :</strong> "Un ménage signale une coupure d'eau ; le ministère répond en 24h."
+                    </div>
+                </div>
+                <div class="chart-visual">
+                    <h4 class="chart-title">Progression des ménages connectés</h4>
+                    <div class="bar-chart">
+                        <div class="bar bar-1">
+                            <span class="bar-value">5K</span>
+                            <span class="bar-label">Année 1</span>
+                        </div>
+                        <div class="bar bar-2">
+                            <span class="bar-value">15K</span>
+                            <span class="bar-label">Année 2</span>
+                        </div>
+                        <div class="bar bar-3">
+                            <span class="bar-value">30K</span>
+                            <span class="bar-label">Année 3</span>
+                        </div>
+                        <div class="bar bar-4">
+                            <span class="bar-value">50K</span>
+                            <span class="bar-label">Année 4</span>
+                        </div>
+                        <div class="bar bar-5">
+                            <span class="bar-value">80K</span>
+                            <span class="bar-label">Année 5</span>
+                        </div>
+                    </div>
+                    <p style="text-align: center; color: #64748b; font-size: 14px;">Nombre de ménages</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Avantages pour les sponsors -->
+        <div class="slide slide-7">
+            <h2 class="slide-title">Pourquoi soutenir Ubuzima Hub ?</h2>
+            <div class="sponsors-grid">
+                <div class="sponsor-benefit">
+                    <div class="benefit-icon">⭐</div>
+                    <div>
+                        <h3>Visibilité</h3>
+                        <p>Votre logo sur l'application, les campagnes publiques, et les événements (audience : 100 000 citoyens)</p>
+                    </div>
+                </div>
+                <div class="sponsor-benefit">
+                    <div class="benefit-icon">🤝</div>
+                    <div>
+                        <h3>Responsabilité sociale</h3>
+                        <p>Soutenez un projet qui promeut la transparence et le bien-être à Bujumbura</p>
+                    </div>
+                </div>
+                <div class="sponsor-benefit">
+                    <div class="benefit-icon">📊</div>
+                    <div>
+                        <h3>Données</h3>
+                        <p>Accès à des rapports anonymisés sur les besoins citoyens pour vos stratégies</p>
+                    </div>
+                </div>
+                <div class="sponsor-benefit">
+                    <div class="benefit-icon">🎯</div>
+                    <div>
+                        <h3>Partenariats</h3>
+                        <p>Co-créez des événements communautaires ou intégrez vos services (ex. : télécoms pour l'appli)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Budget et besoins -->
+        <div class="slide slide-8">
+            <h2 class="slide-title">Investir dans Ubuzima Hub</h2>
+            <div class="slide-content">
+                <div style="width: 100%;">
+                    <table class="budget-table">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Coût (USD)</th>
+                                <th>Contribution sponsor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Développement de l'application</td>
+                                <td>50 000</td>
+                                <td>30 000</td>
+                            </tr>
+                            <tr>
+                                <td>Campagne de sensibilisation</td>
+                                <td>20 000</td>
+                                <td>15 000</td>
+                            </tr>
+                            <tr>
+                                <td>Maintenance (5 ans)</td>
+                                <td>30 000</td>
+                                <td>20 000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Total</strong></td>
+                                <td><strong>100 000</strong></td>
+                                <td><strong>65 000</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="highlight-box" style="margin-top: 30px;">
+                        <strong>Retour sur investissement :</strong> Impact social mesurable, visibilité au
